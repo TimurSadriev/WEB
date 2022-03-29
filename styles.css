@@ -26,7 +26,8 @@ a {
     background-color: beige;
 }
 
-.container_slider_css{margin:50px auto;width:800px;height:500px;overflow:hidden;position:relative}
+.container_slider_css{
+    margin:50px auto;width:800px;height:500px;overflow:hidden;position:relative}
 .photo_slider_css{position:absolute;animation:round 20s infinite;opacity:0;width:100%}
 @keyframes round {
     25%{opacity:1}
