@@ -44,3 +44,7 @@ img:nth-child(5){animation-delay:0s}
 @media(min-width:321px) and (max-width:480px) {
     .container_slider_css{width:80%;height:190px}
 }
+.button:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: #39a1f4;
+}
