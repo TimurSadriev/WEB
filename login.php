@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
     <title>Авторизация</title>
@@ -14,8 +13,8 @@
     <a class="button" href="#">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
     <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="index.html">Главная</a>
-    <a class="button" href="login.html">Вход</a>
+    <a class="button" href="index.php">Главная</a>
+    <a class="button" href="login.php">Вход</a>
 </nav>
 
 <h1 class="hello">Авторизация</h1>
@@ -26,6 +25,14 @@
         <input type="submit" value="Войти">
     </form>
 </div>
+<? include 'loginCheckScript.php';
+$users=[0=>['login','password']];
+$users[0]['login']=maxim;
+$users[0]['password']=123;
+$users[1]['login']=timur;
+$users[1]['password']=123;
 
+check($_REQUEST['login'],$_REQUEST['password'],$users);
+?>
 </body>
 </html>
