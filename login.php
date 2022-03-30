@@ -27,12 +27,37 @@
 </div>
 <? include 'loginCheckScript.php';
 $users=[0=>['login','password']];
-$users[0]['login']=maxim;
-$users[0]['password']=123;
-$users[1]['login']=timur;
-$users[1]['password']=123;
+
+$host = 'localhost'; //имя хоста, на локальном компьютере это localhost
+$user = 'root'; //имя пользователя, по умолчанию это root
+$password = ''; //пароль, по умолчанию пустой
+$db_name = 'test'; //имя базы данных
+
+//Соединяемся с базой данных используя наши доступы:
+$link = mysqli_connect($host, $user, $password, $db_name);
+
+//Устанавливаем кодировку (не обязательно, но поможет избежать проблем):
+mysqli_query($link, "SET NAMES 'utf8'");
+
+//Формируем тестовый запрос:
+$query = "SELECT login,pass FROM users";
+
+//Делаем запрос к БД, результат запроса пишем в $result:
+$result = mysqli_query($link, $query) or die(mysqli_error($link));
+
+//Проверяем что же нам отдала база данных, если null – то какие-то проблемы:
+for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
+$k=0;
+
+foreach ($data  as $i) {
+    $users[k]['login']=$i['login'];
+    $users[k]['password']=$i['pass'];
+    echo $users[k]['login']." ". $users[k]['password']."<br>";
+    $k++;
+}
 
 check($_REQUEST['login'],$_REQUEST['password'],$users);
+
 ?>
 </body>
 </html>
