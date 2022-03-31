@@ -1,15 +1,16 @@
 <?php
-session_start();
-   function check($login,$password,$baza){
-       $fl=false;
-       foreach ($baza as $i)
-       if ($login==$i['login'] &&$password==$i['password']){
-           $_SESSION['userId']=$i['login'];
-           $fl=true;
+   function check($login,$password)
+   {
+       $data= getArray('SELECT id,login,pass FROM users');
+      foreach ($data as $i) {
+           var_dump($i);echo "<br>";
+           $i['login'];
+           if ($login==$i['login'] &&$password==$i['pass']){
+               $_SESSION['userId']=$i['id'];
+               echo "Добро пожаловать, ".$i['login'];
+               return;
+           }
        }
-       if($fl==true)
-           echo "Добро пожаловать, ".$_SESSION['userId'];
-       else
-           echo "Неверный логин/пароль";
+       echo "Неверный логин/пароль";
    }
 ?>

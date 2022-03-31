@@ -1,6 +1,8 @@
 <?
 session_start();
-if(!isset($_SESSION["userId"]))$_SESSION["userId"]="НИКТО!, авторизируйся бытрса я сказал";
+if(!isset($_SESSION["userId"]))
+    $_SESSION["userId"]=-1;//-1 значит что пользователь не вошел
+require 'connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,7 +23,12 @@ if(!isset($_SESSION["userId"]))$_SESSION["userId"]="НИКТО!, авториз�
     <a class="button" href="login.php">Вход</a>
 </nav>
 <?
-echo "Здравствуйте, ".$_SESSION["userId"]."<br>";
+if($_SESSION["userId"]==-1)
+    echo "Авторизируйтесь";
+else {
+    $row=getArray('SELECT login FROM users WHERE id=' . $_SESSION["userId"]);//строчка из таблицы запроса
+    echo "Здравствуйте, " . $row['login'];//пока без кэша, будет лагать конечно
+}
 ?>
 <h1 class="hello"> Интернет-магазин одежды</h1>
 <div class="container_slider_css">
