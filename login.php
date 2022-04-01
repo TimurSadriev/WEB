@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'scripts/connectBD.php';
-include 'scripts/loginCheckScript.php';
+require 'script/connectBD.php';
+include 'script/loginCheckScript.php';
 ?>
 <html>
 <head>

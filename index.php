@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["userId"]))
     $_SESSION["userId"]=-1;//-1 значит что пользователь не вошел
-require 'scripts/connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку
+require 'script/connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
