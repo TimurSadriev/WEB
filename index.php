@@ -1,5 +1,5 @@
 <?
-session_start();
+if(!isset($_SESSION))session_start();
 if(!isset($_SESSION["userId"]))
     $_SESSION["userId"]=-1;//-1 значит что пользователь не вошел
 require 'script/connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку

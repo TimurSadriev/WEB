@@ -1,5 +1,5 @@
 <?php
-session_start();
+if(!isset($_SESSION))session_start();
 require 'script/connectBD.php';
 include 'script/loginCheckScript.php';
 ?>
@@ -29,13 +29,16 @@ include 'script/loginCheckScript.php';
         <input type="submit" value="Войти">
     </form>
 </div>
-<?check($_REQUEST['login'],$_REQUEST['password']);
+<?if(isset($_REQUEST['login']) && isset($_REQUEST['password'])){
+    check($_REQUEST['login'],$_REQUEST['password']);
+    }
 }else{?>
     <div class="entry">
-    <form action="">
+    <form action="<?if(isset($_REQUEST['exit']))$_SESSION['userId']=-1?>">
+        <input type="hidden" name="exit" value=""><br>
         <input type="submit" value="Выйти">
     </form>
-</div>
-<?$_SESSION['userId']=-1;}?>
+    </div>
+<?}?>
 </body>
 </html>
