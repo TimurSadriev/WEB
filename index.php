@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["userId"]))
     $_SESSION["userId"]=-1;//-1 значит что пользователь не вошел
-require 'connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку
+require 'scripts/connectBD.php'//подключение бд, неоходимо делать на каждой странице где нужна бд сессия почему то не созраняет ссылку
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
@@ -27,7 +27,7 @@ if($_SESSION["userId"]==-1)
     echo "Авторизируйтесь";
 else {
     $row=getArray('SELECT login FROM users WHERE id=' . $_SESSION["userId"]);//строчка из таблицы запроса
-    echo "Здравствуйте, " . $row['login'];//пока без кэша, будет лагать конечно
+    echo "Здравствуйте, " . $row[0]['login'];//пока без кэша, будет лагать конечно
 }
 ?>
 <h1 class="hello"> Интернет-магазин одежды</h1>

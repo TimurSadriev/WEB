@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'connectBD.php';
+require 'scripts/connectBD.php';
+include 'scripts/loginCheckScript.php';
 ?>
 <html>
 <head>
@@ -20,15 +21,21 @@ require 'connectBD.php';
 </nav>
 
 <h1 class="hello">Авторизация</h1>
-<div>
+<?if ($_SESSION['userId']==-1){?>
+<div class="entry">
     <form action="">
         Логин: <input type="text" name="login" value=""><br>
         Пароль: <input type="password" name="password" value=""><br>
         <input type="submit" value="Войти">
     </form>
 </div>
-<? include 'loginCheckScript.php';
-check($_REQUEST['login'],$_REQUEST['password']);
-?>
+<?check($_REQUEST['login'],$_REQUEST['password']);
+}else{?>
+    <div class="entry">
+    <form action="">
+        <input type="submit" value="Выйти">
+    </form>
+</div>
+<?$_SESSION['userId']=-1;}?>
 </body>
 </html>
