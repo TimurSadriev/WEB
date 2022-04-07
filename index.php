@@ -15,19 +15,23 @@ require 'script/connectBD.php'//подключение бд, неоходимо 
 </head>
 <body style=background-color:Bisque>
 <nav class="cl-effect-13">
-    <a class="button" href="catalog.html">Каталог</a>
+    <a class="button" href="catalog.php">Каталог</a>
     <a class="button" href="#">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
     <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="weAre.html">О нас</a>
+    <a class="button" href="weAre.php">О нас</a>
+    <? if($_SESSION["userId"]==-1){?>
     <a class="button" href="login.php">Вход</a>
+    <?}else{?>
+    <a class="button" href="PersonalArea.php">Личный кабинет</a>
+    <?}?>
 </nav>
 <?
 if($_SESSION["userId"]==-1)
     echo "Авторизируйтесь";
 else {
-    $row=getArray('SELECT login FROM users WHERE id=' . $_SESSION["userId"]);//строчка из таблицы запроса
-    echo "Здравствуйте, " . $row[0]['login'];//пока без кэша, будет лагать конечно
+    $row=getArray('SELECT login FROM users WHERE id='.$_SESSION["userId"]);//строчка из таблицы запроса
+    echo "Здравствуйте, {$row[0]['login']}";//пока без кэша, будет лагать конечно
 }
 ?>
 <h1 class="hello"> Интернет-магазин одежды</h1>

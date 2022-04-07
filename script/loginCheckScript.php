@@ -3,11 +3,10 @@
    {
        $data= getArray('SELECT id,login,pass FROM users');
       foreach ($data as $i) {
-           var_dump($i);echo "<br>";
            $i['login'];
            if ($login==$i['login'] &&$password==$i['pass']){
                $_SESSION['userId']=$i['id'];
-               echo "Добро пожаловать, ".$i['login'];
+               header("Refresh:0 url=index.php");
                return void;
            }
        }

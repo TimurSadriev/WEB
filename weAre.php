@@ -1,3 +1,6 @@
+<?php
+if(!isset($_SESSION))session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,11 +14,15 @@
 
 <nav class="cl-effect-13">
     <a class="button" href="index.php">Главная</a>
-    <a class="button" href="catalog.html">Каталог</a>
+    <a class="button" href="catalog.php">Каталог</a>
     <a class="button" href="#">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
     <a class="button" href="#">Оставить отзыв</a>
+    <? if($_SESSION["userId"]==-1){?>
     <a class="button" href="login.php">Вход</a>
+    <?}else{?>
+    <a class="button" href="PersonalArea.php">Личный кабинет</a>
+    <?}?>
 </nav>
 
 <h1 class="hello">Здесь будет мы</h1>

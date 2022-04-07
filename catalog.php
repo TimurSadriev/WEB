@@ -1,6 +1,10 @@
+<?php
+if(!isset($_SESSION))session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
     <title>Сайт Тимура и Максима</title>
     <meta charset="UTF-8">
@@ -13,8 +17,12 @@
     <a class="button" href="index.php">Главная</a>
     <a class="button" href="#">Корзина покупок</a>
     <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="weAre.html">О нас</a>
+    <a class="button" href="weAre.php">О нас</a>
+    <? if($_SESSION["userId"]==-1){?>
     <a class="button" href="login.php">Вход</a>
+    <?}else{?>
+    <a class="button" href="PersonalArea.php">Личный кабинет</a>
+    <?}?>
 </nav>
 
 <h1 class="hello">Здесь будет каталог</h1>
@@ -23,6 +31,7 @@
 <h4>Сезон: зима.</h4>
 
 <section class="content">
+
     <div class="card">
         <img class="card-image" src="https://ae04.alicdn.com/kf/Hd19c81a85eb7488582df6cee5ac90018v.jpg">
         <h3 class="card-title">Мужской пуховик</h3>
