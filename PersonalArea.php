@@ -1,5 +1,6 @@
 <?php
 if(!isset($_SESSION))session_start();
+require 'script/connectBD.php';
 ?>
 <html>
 <head>
@@ -17,6 +18,14 @@ if(!isset($_SESSION))session_start();
     <a class="button" href="#">Оставить отзыв</a>
 </nav>
 <h1 class="hello">Профиль</h1>
+<div class="hello">
+<?
+$info=getArray('SELECT * FROM users WHERE id='.$_SESSION['userId']);
+echo "Пользователь ".$info[0]['login']."<br>".
+    "Email: ".$info[0]['email']."<br>".
+    "Статус: ".$info[0]['status'];
+?>
+</div class="hello">
 <div class="entry">
     <form action=" " method="post">
         <input type="submit" value="Выйти" name="out">
@@ -25,6 +34,6 @@ if(!isset($_SESSION))session_start();
 
 <?if(isset($_POST['out'])){
     $_SESSION['userId']=-1;
-    header("Refresh:0 url=index.php");} ?>
+    header("Refresh:0 url=login.php");} ?>
 </body>
 </html>

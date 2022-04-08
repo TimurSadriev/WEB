@@ -21,13 +21,28 @@ include 'script/loginCheckScript.php';
 
 <h1 class="hello">Авторизация</h1>
 <div class="entry">
-    <form action=" ">
+    <form action=" " method="post">
         Логин: <input type="text" name="login" value=""><br>
         Пароль: <input type="password" name="password" value=""><br>
-        <input type="submit" value="Войти">
+        <input type="submit" value="Войти" name="in">
     </form>
 </div>
-<?if(isset($_REQUEST['login']) && isset($_REQUEST['password'])){
-    check($_REQUEST['login'],$_REQUEST['password']);} ?>
+<?if(isset($_REQUEST['login']) && isset($_REQUEST['password']) && isset($_REQUEST['in'])){
+    check($_REQUEST['login'],$_REQUEST['password']);}?>
+<h1 class="hello">Регистрация</h1>
+<div class="entry">
+    <form action=" " method="post">
+        Ваша почта: <input type="text" name="email" value=""><br>
+        Придумайте логин: <input type="text" name="loginR" value=""><br>
+        Придумайте пароль: <input type="password" name="passwordR" value=""><br>
+        Подтвердите пароль: <input type="password" name="passwordRС" value=""><br>
+        <input type="submit" value="Зарегестрироваться" name="reg">
+    </form>
+</div>
+<?
+ if(isset($_REQUEST['reg'])){
+        //mail("timursadriev13@yandex.ru", "Загаловок", "Текст письма \n 1-ая строчка \n 2-ая строчка \n 3-ая строчка");
+   addClient($_REQUEST['loginR'],$_REQUEST['passwordR'],$_REQUEST['passwordRС'],$_REQUEST['email']);
+ } ?>
 </body>
 </html>
