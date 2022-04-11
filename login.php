@@ -24,7 +24,7 @@ include 'script/loginCheckScript.php';
     <form action=" " method="post">
         Логин: <input type="text" name="login" value=""><br>
         Пароль: <input type="password" name="password" value=""><br>
-        <input type="submit" value="Войти" name="in">
+        <input type="submit" class="submit" value="Войти" name="in">
     </form>
 </div>
 <?if(isset($_REQUEST['login']) && isset($_REQUEST['password']) && isset($_REQUEST['in'])){
@@ -36,7 +36,7 @@ include 'script/loginCheckScript.php';
         Придумайте логин: <input type="text" name="loginR" value=""><br>
         Придумайте пароль: <input type="password" name="passwordR" value=""><br>
         Подтвердите пароль: <input type="password" name="passwordRС" value=""><br>
-        <input type="submit" value="Зарегестрироваться" name="reg">
+        <input type="submit" class="submit" value="Зарегистрироваться" name="reg">
     </form>
 </div>
 <?

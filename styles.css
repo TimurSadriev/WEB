@@ -5,7 +5,8 @@
     font-family: "Times New Roman", serif;
     text-transform: uppercase;
     text-align: center;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, .5);
+    box-shadow: inset 0 0 6px;
 }
 /*Текст страницы каталог*/
 .catreview{
@@ -13,6 +14,7 @@
     text-align: center;
 }
 
+/*Блоки каталога*/
 .overlay {
     width: 100%;
     height: 100%;
@@ -27,10 +29,11 @@
     width: 350px;
     margin-bottom: 100px;
     padding: 45px 45px 70px;
-    border: 2px solid rgba(250, 50, 50, .4);
+    border: 2px solid rgba(43, 0, 0, .4);
     display: inline-block;
     margin-right: 22px;
     margin-left: 22px;
+    background-color: antiquewhite;
 }
 
 .card-title{
@@ -40,11 +43,13 @@
 }
 .card-text{
     font-size: 16px;
+    text-align: justify;
 }
 .card-image{
     width: 100%;
     margin-bottom: 25px;
 }
+/*Кнопки каталога*/
 .button-cat{
     display: inline-block;
     color: white;
@@ -61,13 +66,39 @@
 .button-cat:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
 .button-cat:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
 
+/*Кнопки регистрации и входа*/
+.submit{
+    cursor: pointer;
+    border: 1px solid #cecece;
+    background: #f6f6f6;
+    box-shadow: inset 0px 20px 20px #ffffff;
+    border-radius: 8px;
+    padding: 8px 14px;
+    width: 200px;
+}
+.submit:hover {
+    box-shadow: inset 0px -20px 20px #D77206;
+}
+.submit:active {
+    margin-top: 1px;
+    margin-bottom: -1px;
+    zoom: 1;
+}
 
-/*
-Изменение ссылок
-*/
+/*Стилизация полей ввода*/
+input {
+    width: 300px;
+    font-size: 13px;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #F6F6f6;
+    border-radius: 8px;
+}
+
+/*Изменение ссылок*/
 a {
     display: inline-block;
-    color: brown;
+    color: #2E2300;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -100,7 +131,7 @@ img:nth-child(5){animation-delay:0s}
 }
 .button:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    background: #39a1f4;
+    background: #C05805;
 }
 .entry{
     color: black;
@@ -109,5 +140,10 @@ img:nth-child(5){animation-delay:0s}
     font-family: "Times New Roman", serif;
     text-transform: uppercase;
     text-align: center;
-    background-color: darkgoldenrod;
+    background-color: #C29545;
+    width: 1000px;
+    border-radius: 20px;
+    margin: auto;
+    line-height: 2;
+    padding-bottom: 5px;
 }
