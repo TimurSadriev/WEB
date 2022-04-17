@@ -14,7 +14,7 @@ require 'script/connectBD.php';
 <nav class="cl-effect-13">
     <a class="button" href="index.php">Главная</a>
     <a class="button" href="catalog.php">Каталог</a>
-    <a class="button" href="#">Корзина покупок</a>
+    <a class="button" href="basket.php">Корзина покупок</a>
     <a class="button" href="#">Оставить отзыв</a>
 </nav>
 <h1 class="hello">Профиль</h1>

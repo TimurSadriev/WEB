@@ -15,7 +15,7 @@ if(!isset($_SESSION))session_start();
 <nav class="cl-effect-13">
     <a class="button" href="index.php">Главная</a>
     <a class="button" href="catalog.php">Каталог</a>
-    <a class="button" href="#">Корзина покупок</a>
+    <a class="button" href="basket.php">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
     <a class="button" href="#">Оставить отзыв</a>
     <? if($_SESSION["userId"]==-1){?>

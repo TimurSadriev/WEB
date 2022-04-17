@@ -1,11 +1,12 @@
 .hello{
-    color: black;
+    color: white;
     font-size: 30px;
     font-style: normal;
     font-family: "Times New Roman", serif;
     text-transform: uppercase;
     text-align: center;
-    background-color: rgba(245, 245, 245, .5);
+    /*background-color: rgba(245, 245, 245, .5);*/
+    background-color: rgba(0, 0, 0, .5);
     box-shadow: inset 0 0 6px;
 }
 
@@ -147,4 +148,7 @@ img:nth-child(5){animation-delay:0s}
     margin: auto;
     line-height: 2;
     padding-bottom: 5px;
+}
+body{
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1613382661_85-p-bezhevie-doski-fon-135.jpg");
 }
