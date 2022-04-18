@@ -57,6 +57,9 @@ function createForm($productArray,$id){
 <section class="content">
     <? createForm($products3,"Buy")?>
 </section>
-
+<h4>Сезон: весна/лето.</h4>
+<section class="content">
+    <? createForm($products4,"Buy")?>
+</section>
 </body>
 </html>
