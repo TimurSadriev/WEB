@@ -21,11 +21,13 @@ include 'script/loginCheckScript.php';
 
 <h1 class="hello">Авторизация</h1>
 <div class="entry">
-    <form action=" " method="post">
+    <div style="opacity: unset">
+    <form action=" " method="post" >
         Логин: <input type="text" name="login" value=""><br>
         Пароль: <input type="password" name="password" value=""><br>
         <input type="submit" class="submit" value="Войти" name="in">
     </form>
+</div>
 </div>
 <?if(isset($_REQUEST['login']) && isset($_REQUEST['password']) && isset($_REQUEST['in'])){
     check($_REQUEST['login'],$_REQUEST['password']);}?>

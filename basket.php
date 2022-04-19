@@ -1,6 +1,14 @@
 <?php
 if(!isset($_SESSION))session_start();
 require 'productsList.php';
+//unset($_SESSION['basket']); //Очистить корзину
+if (isset($_REQUEST['delete'])){
+    $key=array_search($_REQUEST['delete']."",$_SESSION['basket']);
+    echo "<script> alert('Товар удален');</script>";
+    unset($_SESSION['basket'][$key]);
+    unset($_REQUEST['delete']);
+}
+
 ?>
 <html>
 <head>
@@ -24,16 +32,20 @@ require 'productsList.php';
 </nav>
 <h1 class="hello">Товары в корзине</h1>
 <section class="content">
-<?for($i=0;$i<count($_SESSION['basket']);$i++){
-    $id=substr($_SESSION['basket'][$i],3);
-    var_dump($id);
+<?foreach($_SESSION['basket'] as $i){
+    $id=substr($i,1);
+    $vid=substr($i,0,1);
     ?>
     <div class="card">
-        <img class="card-image" src="<?=$products[$id-1]['url']?>">
-        <h3 class="card-title"><?=$products[$id-1]['name']?></h3>
-        <p class="card-text"><?=$products[$id-1]['desc']?></p>
+        <img class="card-image" src="<?=$products[$vid][$id-1]['url']?>">
+        <h3 class="card-title"><?=$products[$vid][$id-1]['name']?></h3>
+        <p class="card-text"><?=$products[$vid][$id-1]['desc']?></p>
+        <form action="">
+        <button class="button-cat" name="delete" value="<?=$i?>">Убрать из корзины</button>
+        </form>
     </div>
-<?}?>
+<?}
+?>
 </section>
 </body>
 </html>

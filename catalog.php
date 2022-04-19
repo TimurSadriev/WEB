@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION))session_start();
 require 'productsList.php';
-//unset($_SESSION['basket']); //Очистить корзину
 require 'script/addBasket.php';
+add();
 function createForm($productArray,$id){
      for($i=0;$i<count($productArray);$i++){?>
     <div class="card">
@@ -10,7 +10,7 @@ function createForm($productArray,$id){
         <h3 class="card-title"><?=$productArray[$i]['name']?></h3>
         <p class="card-text"><?=$productArray[$i]['desc']?></p>
         <form action="">
-        <button  name="buy" value="<?=$id.($i+1)?>" class="button-cat">Купить</button>
+        <button  name="buy" value="<?=$id.($i+1)?>" class="button-cat">Добавить в корзину</button>
         </form>
     </div>
     <?}
@@ -45,21 +45,21 @@ function createForm($productArray,$id){
 <h3>Мужская одежда.</h3>
 <h4>Сезон: зима/осень.</h4>
 <section class="content">
-    <? createForm($products,"Buy")?>
+    <? createForm($products[0],"0")?>
 </section>
 <h4>Сезон: лето/весна.</h4>
 <section class="content">
-    <? createForm($products2,"Buy")?>
+    <? createForm($products[1],"1")?>
 </section>
 
 <h3>Женская одежда.</h3>
 <h4>Сезон: зима/осень.</h4>
 <section class="content">
-    <? createForm($products3,"Buy")?>
+    <? createForm($products[2],"2")?>
 </section>
 <h4>Сезон: весна/лето.</h4>
 <section class="content">
-    <? createForm($products4,"Buy")?>
+    <? createForm($products[3],"3")?>
 </section>
 </body>
 </html>

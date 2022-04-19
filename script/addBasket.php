@@ -1,8 +1,8 @@
 <?
-if (isset($_REQUEST['buy'])) {
+function add(){if (isset($_REQUEST['buy'])) {
 $fl = false;
-for ($i = 0; $i <= count($_SESSION['basket']); $i++) {
-if ($_REQUEST['buy'] == ($_SESSION['basket'])[$i]) {
+foreach ($_SESSION['basket'] as $i) {
+if ($_REQUEST['buy'] == $i){
 $fl = true;
 }
 }
@@ -12,4 +12,5 @@ echo "<script> alert('Товар добавлен в корзину');</script>"
 }
 unset($_REQUEST['buy']);
 header("Refresh:0 url=catalog.php");
+}
 };
