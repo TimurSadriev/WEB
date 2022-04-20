@@ -17,7 +17,7 @@ if(!isset($_SESSION))session_start();
     <a class="button" href="catalog.php">Каталог</a>
     <a class="button" href="basket.php">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
-    <a class="button" href="#">Оставить отзыв</a>
+    <a class="button" href="review.php">Оставить отзыв</a>
     <? if($_SESSION["userId"]==-1){?>
     <a class="button" href="login.php">Вход</a>
     <?}else{?>

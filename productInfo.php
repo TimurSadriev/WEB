@@ -9,7 +9,7 @@ require 'script/connectBD.php';
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image" href="https://images.pexels.com/photos/11358782/pexels-photo-11358782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
 </head>
-<body style=background-color:Bisque>
+<body style=background-color:Bisque; >
 
 <nav class="cl-effect-13">
     <a class="button" href="catalog.php">Каталог</a>
@@ -27,17 +27,17 @@ require 'script/connectBD.php';
 $product=getArray('SELECT * FROM products WHERE id='.$_COOKIE['openProductId'])[0];
 ?>
 <h1 class="hello">Выбранный товар</h1>
-    <div class="card" style="width: 550px;border-radius: 30px;display: inline-block">
+    <div class="card" style="width: 550px; margin-top: 30px; border-radius: 30px">
         <img class="card-image" s src="<?=$product['url']?>">
     </div>
-<div style="display: inline-grid;width: 400px;background-color: coral;opacity: 0.5">
-    <h3 style="margin-top: 10px"><?=$product['name']?></h3>
-    <p ><?=$product['description']?></p>
-    <p ><?=$product['price']?></p>
-    <p ><?=$product['count']?></p>
+<div class="infprod" style="">
+    <h3 style="margin-top: 10px; text-align: center"><?=$product['name']?></h3>
+    <p style="margin-top: 50px; font-size: 17px; text-align: justify"><?=$product['description']?></p>
+    <p style="margin-top:100px; font-size: 20px; font-style: italic; font-weight: bolder; text-align: center">Цена: <?=$product['price']?></p>
+    <p style="margin-top:0px;font-size: 20px; font-style: italic; font-weight: bolder; text-align: center">Количество: <?=$product['count']?></p>
 </div>
 <form action="">
-    <button  name="basket" value="<?=$_COOKIE['openProductId']?>" class="button-cat">Добавить в корзину</button>
+    <button style="/*margin-top: -350px;*/ margin-left: 50px" name="basket" value="<?=$_COOKIE['openProductId']?>" class="button-cat">Добавить в корзину</button>
 </form>
 </body>
 </html>

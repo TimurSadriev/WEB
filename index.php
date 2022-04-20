@@ -18,7 +18,7 @@ require 'script/connectBD.php'//подключение бд, неоходимо 
     <a class="button" href="catalog.php">Каталог</a>
     <a class="button" href="basket.php">Корзина покупок</a>
     <a class="button" href="#">Контакты</a>
-    <a class="button" href="#">Оставить отзыв</a>
+    <a class="button" href="review.php">Оставить отзыв</a>
     <a class="button" href="weAre.php">О нас</a>
     <? if($_SESSION["userId"]==-1){?>
     <a class="button" href="login.php">Вход</a>
