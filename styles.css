@@ -164,9 +164,13 @@ body{
 }
 .map{
     display: inline-block;
+    width: 900px;
+    height: 700px;
+    margin-left: 20px;
 }
 .ourInfo{
     display: inline-block;
+    padding-left: 30px;
 }
 
 /*окно описания товара*/

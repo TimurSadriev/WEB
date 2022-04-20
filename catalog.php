@@ -1,8 +1,7 @@
 <?php
 if(!isset($_SESSION))session_start();
-//require 'script/addBasket.php';
 require 'script/connectBD.php';
-function createForm($productArray,$id){
+function createForm($productArray){
      for($i=0;$i<count($productArray);$i++){?>
     <div class="card">
         <img class="card-image" src="<?=$productArray[$i]['url']?>">
@@ -50,14 +49,14 @@ function createForm($productArray,$id){
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=0');
-    createForm($spisok,"0");
+    createForm($spisok);
     ?>
 </section>
 <h4>Сезон: лето/весна.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=1');
-    createForm($spisok,"1")?>
+    createForm($spisok)?>
 </section>
 
 <h3>Женская одежда.</h3>
@@ -65,13 +64,13 @@ function createForm($productArray,$id){
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=2');
-    createForm($spisok,"2")?>
+    createForm($spisok)?>
 </section>
 <h4>Сезон: весна/лето.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=3');
-    createForm($spisok,"3")?>
+    createForm($spisok)?>
 </section>
 </body>
 </html>

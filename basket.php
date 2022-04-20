@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SESSION))session_start();
-require 'productsList.php';
+require 'script/connectBD.php';
 //unset($_SESSION['basket']); //Очистить корзину
 if (isset($_REQUEST['delete'])){
     $key=array_search($_REQUEST['delete']."",$_SESSION['basket']);
@@ -8,7 +8,6 @@ if (isset($_REQUEST['delete'])){
     unset($_SESSION['basket'][$key]);
     unset($_REQUEST['delete']);
 }
-
 ?>
 <html>
 <head>
@@ -32,16 +31,16 @@ if (isset($_REQUEST['delete'])){
 </nav>
 <h1 class="hello">Товары в корзине</h1>
 <section class="content">
-<?foreach($_SESSION['basket'] as $i){
-    $id=substr($i,1);
-    $vid=substr($i,0,1);
+<?foreach($_SESSION['basket'] as $k=>$v){
+    $element=getArray('SELECT * FROM products WHERE id='.$v)[0];
+    var_dump($element);
     ?>
     <div class="card">
-        <img class="card-image" src="<?=$products[$vid][$id-1]['url']?>">
-        <h3 class="card-title"><?=$products[$vid][$id-1]['name']?></h3>
-        <p class="card-text"><?=$products[$vid][$id-1]['desc']?></p>
+        <img class="card-image" src="<?=$element['url']?>">
+        <h3 class="card-title"><?=$element['name']?></h3>
+        <p class="card-text"><?=$element['price']?></p>
         <form action="">
-        <button class="button-cat" name="delete" value="<?=$i?>">Убрать из корзины</button>
+        <button class="button-cat" name="delete" value="<?=$v?>">Убрать из корзины</button>
         </form>
     </div>
 <?}

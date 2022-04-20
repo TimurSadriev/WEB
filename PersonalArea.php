@@ -28,7 +28,7 @@ echo "Пользователь ".$info[0]['login']."<br>".
 </div class="hello">
 <div class="entry">
     <form action=" " method="post">
-        <input type="submit" value="Выйти" name="out">
+        <input type="submit" class="submit" value="Выйти" name="out">
     </form>
 </div>
 

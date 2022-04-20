@@ -1,16 +1,15 @@
 <?
-function add(){if (isset($_REQUEST['buy'])) {
+function add(){if (isset($_REQUEST['basket'])) {
 $fl = false;
 foreach ($_SESSION['basket'] as $i) {
-if ($_REQUEST['buy'] == $i){
+if ($_REQUEST['basket'] == $i){
 $fl = true;
 }
 }
 if ($fl == false) {
-($_SESSION['basket'])[] = $_REQUEST['buy'];
+($_SESSION['basket'])[] = $_REQUEST['basket'];
 echo "<script> alert('Товар добавлен в корзину');</script>";
 }
-unset($_REQUEST['buy']);
 header("Refresh:0 url=catalog.php");
 }
 };
