@@ -1,16 +1,19 @@
 <?php
 if(!isset($_SESSION))session_start();
-require 'productsList.php';
-require 'script/addBasket.php';
-add();
+//require 'script/addBasket.php';
+require 'script/connectBD.php';
 function createForm($productArray,$id){
      for($i=0;$i<count($productArray);$i++){?>
     <div class="card">
         <img class="card-image" src="<?=$productArray[$i]['url']?>">
         <h3 class="card-title"><?=$productArray[$i]['name']?></h3>
-        <p class="card-text"><?=$productArray[$i]['desc']?></p>
-        <form action="">
-        <button  name="buy" value="<?=$id.($i+1)?>" class="button-cat">Добавить в корзину</button>
+        <p class="card-text"><?=$productArray[$i]['price']?></p>
+        <form action="<?
+        if(isset($_REQUEST['buy'])){
+            setcookie('openProductId',$_REQUEST['buy']);
+            header("Refresh:0 url=productInfo.php");
+        }?>">
+        <button  name="buy" value="<?=$productArray[$i]['id']?>" class="button-cat">Подробнее</button>
         </form>
     </div>
     <?}
@@ -45,21 +48,30 @@ function createForm($productArray,$id){
 <h3>Мужская одежда.</h3>
 <h4>Сезон: зима/осень.</h4>
 <section class="content">
-    <? createForm($products[0],"0")?>
+    <?
+    $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=0');
+    createForm($spisok,"0");
+    ?>
 </section>
 <h4>Сезон: лето/весна.</h4>
 <section class="content">
-    <? createForm($products[1],"1")?>
+    <?
+    $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=1');
+    createForm($spisok,"1")?>
 </section>
 
 <h3>Женская одежда.</h3>
 <h4>Сезон: зима/осень.</h4>
 <section class="content">
-    <? createForm($products[2],"2")?>
+    <?
+    $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=2');
+    createForm($spisok,"2")?>
 </section>
 <h4>Сезон: весна/лето.</h4>
 <section class="content">
-    <? createForm($products[3],"3")?>
+    <?
+    $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=3');
+    createForm($spisok,"3")?>
 </section>
 </body>
 </html>
