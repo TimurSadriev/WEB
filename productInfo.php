@@ -1,6 +1,8 @@
 <?php
 if(!isset($_SESSION))session_start();
 require 'script/connectBD.php';
+require 'script/addBasket.php';
+add();
 ?>
 <html>
 <head>
