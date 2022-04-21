@@ -37,7 +37,7 @@ $product=getArray('SELECT * FROM products WHERE id='.$_COOKIE['openProductId'])[
     <p style="margin-top:0px;font-size: 20px; font-style: italic; font-weight: bolder; text-align: center">Количество: <?=$product['count']?></p>
 </div>
 <form action="">
-    <button style="/*margin-top: -350px;*/ margin-left: 50px" name="basket" value="<?=$_COOKIE['openProductId']?>" class="button-cat">Добавить в корзину</button>
+    <button style="margin-top: -350px; margin-left: 50px" name="basket" value="<?=$_COOKIE['openProductId']?>" class="button-cat">Добавить в корзину</button>
 </form>
 </body>
 </html>
