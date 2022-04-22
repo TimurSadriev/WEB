@@ -6,7 +6,7 @@ function createForm($productArray){
     <div class="card">
         <img class="card-image" src="<?=$productArray[$i]['url']?>">
         <h3 class="card-title"><?=$productArray[$i]['name']?></h3>
-        <p class="card-text"><?=$productArray[$i]['price']?></p>
+        <p class="card-text"><?=$productArray[$i]['price']?> RUB</p>
         <form action="<?
         if(isset($_REQUEST['buy'])){
             setcookie('openProductId',$_REQUEST['buy']);
@@ -33,10 +33,9 @@ function createForm($productArray){
 <nav class="cl-effect-13">
     <a class="button" href="index.php">Главная</a>
     <a class="button" href="basket.php">Корзина покупок</a>
-    <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="weAre.php">О нас</a>
+    <a class="button" href="weAre.php">Адрес и контакты</a>
     <? if($_SESSION["userId"]==-1){?>
-    <a class="button" href="login.php">Вход</a>
+    <a class="button" href="login.php">Авторизация</a>
     <?}else{?>
     <a class="button" href="PersonalArea.php">Личный кабинет</a>
     <?}?>
@@ -44,29 +43,29 @@ function createForm($productArray){
 
 <h1 class="hello">Каталог одежды</h1>
 <h2 class="catreview">На нашем сайте представлена одежда для мужчин и женщин, разделенная по сезонам. Вся одежда представлена в данном каталоге.</h2>
-<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Мужская одежда.</h3>
-<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: зима/осень.</h4>
+<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: wheat;">Мужская одежда.</h3>
+<h4 class="year">Сезон: зима/осень.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=0');
     createForm($spisok);
     ?>
 </section>
-<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: лето/весна.</h4>
+<h4 class="year">Сезон: лето/весна.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=1');
     createForm($spisok)?>
 </section>
 
-<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Женская одежда.</h3>
-<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: зима/осень.</h4>
+<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: wheat;">Женская одежда.</h3>
+<h4 class="year">Сезон: зима/осень.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=2');
     createForm($spisok)?>
 </section>
-<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: весна/лето.</h4>
+<h4 class="year">Сезон: весна/лето.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=3');

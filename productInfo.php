@@ -16,11 +16,9 @@ add();
 <nav class="cl-effect-13">
     <a class="button" href="catalog.php">Каталог</a>
     <a class="button" href="basket.php">Корзина покупок</a>
-    <a class="button" href="#">Контакты</a>
-    <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="weAre.php">О нас</a>
+    <a class="button" href="weAre.php">Адрес и контакты</a>
     <? if($_SESSION["userId"]==-1){?>
-        <a class="button" href="login.php">Вход</a>
+        <a class="button" href="login.php">Авторизация</a>
     <?}else{?>
         <a class="button" href="PersonalArea.php">Личный кабинет</a>
     <?}?>
@@ -37,9 +35,9 @@ $product=getArray('SELECT * FROM products WHERE id='.$_COOKIE['openProductId'])[
     <p style="margin-top: 50px; font-size: 17px; text-align: justify"><?=$product['description']?></p>
     <p style="margin-top:100px; font-size: 20px; font-style: italic; font-weight: bolder; text-align: center">Цена: <?=$product['price']?></p>
     <p style="margin-top:0px;font-size: 20px; font-style: italic; font-weight: bolder; text-align: center">Количество: <?=$product['count']?></p>
+    <form action="">
+        <button class="button-basket" name="basket" value="<?=$_COOKIE['openProductId']?>">Добавить в корзину</button>
+    </form>
 </div>
-<form action="">
-    <button style="margin-top: -350px; margin-left: 50px" name="basket" value="<?=$_COOKIE['openProductId']?>" class="button-cat">Добавить в корзину</button>
-</form>
 </body>
 </html>

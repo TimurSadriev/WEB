@@ -19,12 +19,11 @@ if (isset($_REQUEST['delete'])){
 <body style=background-color:Bisque>
 
 <nav class="cl-effect-13">
+    <a class="button" href="index.php">Главная</a>
     <a class="button" href="catalog.php">Каталог</a>
-    <a class="button" href="#">Контакты</a>
-    <a class="button" href="#">Оставить отзыв</a>
-    <a class="button" href="weAre.php">О нас</a>
+    <a class="button" href="weAre.php">Адрес и контакты</a>
     <? if($_SESSION["userId"]==-1){?>
-        <a class="button" href="login.php">Вход</a>
+        <a class="button" href="login.php">Авторизация</a>
     <?}else{?>
         <a class="button" href="PersonalArea.php">Личный кабинет</a>
     <?}?>
@@ -35,10 +34,10 @@ if (isset($_REQUEST['delete'])){
     $element=getArray('SELECT * FROM products WHERE id='.$v)[0];
     var_dump($element);
     ?>
-    <div class="card">
+    <div class="card" style="width: 200px;height: 400px">
         <img class="card-image" src="<?=$element['url']?>">
         <h3 class="card-title"><?=$element['name']?></h3>
-        <p class="card-text"><?=$element['price']?></p>
+        <p class="card-text"><?=$element['price']?> RUB</p>
         <form action="">
         <button class="button-cat" name="delete" value="<?=$v?>">Убрать из корзины</button>
         </form>
@@ -46,5 +45,36 @@ if (isset($_REQUEST['delete'])){
 <?}
 ?>
 </section>
+<div class="Oplata">
+    <p style="background-color: #C05805;color: wheat;font-size: 40px">Итоговая стоимость:
+        <?
+        $sum=0;
+        if(isset($_SESSION['basket'])){
+        foreach($_SESSION['basket'] as $k=>$v){
+            $element=getArray('SELECT price FROM products WHERE id='.$v)[0]['price'];
+            $sum+=$element;
+        }
+        }
+        echo $sum;
+        ?>
+        RUB</p>
+</div>
+<form action="">
+    <button class="button-oplata" name="oplata" >Оплатить</button>
+</form>
+<?
+if(isset($_REQUEST['oplata'])){
+    if($_SESSION["userId"]==-1){
+        echo "<script> alert('Войдите для совершения покупки');</script>";
+    }else{
+        foreach ($_SESSION['basket'] as $k=>$v){
+            $userId=$_SESSION["userId"];
+            $query="INSERT INTO orders (clientId,productId,text,status) VALUES ('$userId','$v','sometext','somestat')";
+            mysqli_query($_SESSION["link"], $query);
+            unset($_SESSION['basket']);
+        }
+    }
+}
+?>
 </body>
 </html>

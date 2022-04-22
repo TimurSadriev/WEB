@@ -30,7 +30,8 @@
 .card{
     width: 350px;
     margin-bottom: 100px;
-    padding: 45px 45px 70px;
+    border-radius: 10px;
+    padding: 45px 45px 20px;
     border: 2px solid rgba(43, 0, 0, .4);
     display: inline-block;
     margin-right: 22px;
@@ -45,11 +46,11 @@
 }
 .card-text{
     font-size: 16px;
-    text-align: justify;
+    text-align: center;
 }
 .card-image{
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
 }
 /*Кнопки каталога*/
 .button-cat{
@@ -167,6 +168,8 @@ body{
 .ourInfo{
     display: inline-block;
     padding-left: 30px;
+    border-radius: 20px;
+    border-color: #2E2300;
 }
 
 /*окно описания товара*/
@@ -174,25 +177,91 @@ body{
     display: inline-grid;
     margin: auto;
     width: 400px;
-    background-color: #FFA500;
+    background-color: white;
+    opacity: 0.6;
     position:relative;
-    top: -500px;
+    top: -550px;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-radius: 90%;
+    border-radius: 10%;
     box-shadow: 0 0 5px 2px red;
 }
 /*подвал*/
 .footer {
     left: 0; bottom: 0; /* Левый нижний угол */
     padding: 10px;  /*Поля вокруг текста */
-    background-color: beige; /* Цвет фона */
+    background-color: rgba(220,180,180,0.25);
+    border-radius: 30px;
+    box-shadow: 0 0 5px 5px saddlebrown;
     color: black; /* Цвет текста */
-    width: 100%;
+    width: 90%;
+    position:relative;
     margin-left: 0px;
     position: absolute;
     margin-bottom: -200px;
     font-size: large;
+    margin-left: 30px;
 }
+.vk{
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    margin: 0 0 0 0;
+    padding: unset;
+}
+.vktxt{
+    display: inline-flex;
+    color: #2E2300;
+    font-size: larger;
+    margin: unset;
+    padding: unset;
+}
+.button-basket{
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 80px;
+    position:relative;
+    background-color: cornflowerblue;
+    opacity: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: blueviolet;
+}
+.button-basket:hover{
+    background: linear-gradient(#f5ae00, #f59500) #f5ae00;
+}
+.Oplata{
+    background-color: white; /* Цвет фона */
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 30px;
+    box-shadow: 0 0 5px 5px saddlebrown;
+    color: black; /* Цвет текста */
+    width: 90%;
+    font-size: large;
+    margin-left: 30px;
+}
+.year{
+    font-size: 25px; text-align: center; text-transform: uppercase; color: wheat;background-color: #C05805;
+}
+.button-oplata{
+    position: center;
+    width: 300px;
+    height: 100px;
+    color: white;
+    text-decoration: none;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-color: #FDBE33 #000 #D77206;
+    border-radius: 6px;
+    background: linear-gradient(#F3AE0F, #E38916) #E38916;
+    transition: 0.2s;
+}
+.button-oplata:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: #C05805;}
+
