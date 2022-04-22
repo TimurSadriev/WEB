@@ -44,29 +44,29 @@ function createForm($productArray){
 
 <h1 class="hello">Каталог одежды</h1>
 <h2 class="catreview">На нашем сайте представлена одежда для мужчин и женщин, разделенная по сезонам. Вся одежда представлена в данном каталоге.</h2>
-<h3>Мужская одежда.</h3>
-<h4>Сезон: зима/осень.</h4>
+<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Мужская одежда.</h3>
+<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: зима/осень.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=0');
     createForm($spisok);
     ?>
 </section>
-<h4>Сезон: лето/весна.</h4>
+<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: лето/весна.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=1');
     createForm($spisok)?>
 </section>
 
-<h3>Женская одежда.</h3>
-<h4>Сезон: зима/осень.</h4>
+<h3 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Женская одежда.</h3>
+<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: зима/осень.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=2');
     createForm($spisok)?>
 </section>
-<h4>Сезон: весна/лето.</h4>
+<h4 style="font-size: 25px; text-align: center; text-transform: uppercase; color: black">Сезон: весна/лето.</h4>
 <section class="content">
     <?
     $spisok=getArray('SELECT id,name,url,price FROM products WHERE LEFT(id,1)=3');

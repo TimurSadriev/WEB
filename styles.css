@@ -1,7 +1,3 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
 .hello{
     color: white;
     font-size: 30px;
@@ -12,8 +8,6 @@
     /*background-color: rgba(245, 245, 245, .5);*/
     background-color: rgba(0, 0, 0, .5);
     box-shadow: inset 0 0 6px;
-    margin: 0px;
-    padding: 0px;
 }
 
 /*Текст страницы каталог*/
@@ -31,7 +25,7 @@
 .content{
     font-size: 0;
     width: 1500px;
-    margin: 0 auto;
+    margin: auto;
 }
 .card{
     width: 350px;
@@ -121,7 +115,11 @@ a {
 }
 
 .container_slider_css{
-    margin:50px auto;width:800px;height:500px;overflow:hidden;position:relative}
+    margin:50px auto;
+    width:800px;
+    height:500px;
+    overflow:hidden;
+    position:relative}
 .photo_slider_css{position:absolute;animation:round 20s infinite;opacity:0;width:100%}
 @keyframes round {
     25%{opacity:1}
@@ -159,8 +157,6 @@ img:nth-child(5){animation-delay:0s}
 }
 body{
     background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1613382661_85-p-bezhevie-doski-fon-135.jpg");
-    margin: 0px;
-    padding: 0px;
 }
 .map{
     display: inline-block;
@@ -187,4 +183,16 @@ body{
     padding-bottom: 30px;
     border-radius: 90%;
     box-shadow: 0 0 5px 2px red;
+}
+/*подвал*/
+.footer {
+    left: 0; bottom: 0; /* Левый нижний угол */
+    padding: 10px;  /*Поля вокруг текста */
+    background-color: beige; /* Цвет фона */
+    color: black; /* Цвет текста */
+    width: 100%;
+    margin-left: 0px;
+    position: absolute;
+    margin-bottom: -200px;
+    font-size: large;
 }

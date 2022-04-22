@@ -42,5 +42,10 @@ else {
     <img class="photo_slider_css" src="https://images.pexels.com/photos/1030946/pexels-photo-1030946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
     <img class="photo_slider_css" src="https://images.pexels.com/photos/3812433/pexels-photo-3812433.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
 </div>
+<div class="footer">
+    <p style="text-indent: 40px">Соцсети для связи:</p>
+    <a href="https://vk.com/liquidstoner"> Садриев Тимур</a>
+    <a href="https://vk.com/m.yunyaev"> Юняев Максим</a>
+</div>
 </body>
 </html>
